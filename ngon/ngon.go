@@ -25,8 +25,8 @@ func CalculateVertices(ctx context.Context, radius int, sides int) []*Vertix {
 func CalculateVertix(ctx context.Context, radius int, sides int, side int) *Vertix {
 	angle := (2 * math.Pi) / float64(sides)
 	return &Vertix{
-		X: math.Sin(angle*float64(side)) * float64(radius) / 2.0,
-		Y: math.Cos(angle*float64(side)) * float64(radius) / 2.0,
+		X: -(math.Sin(angle*float64(side)) * float64(radius) / 2.0),
+		Y: -(math.Cos(angle*float64(side)) * float64(radius) / 2.0),
 	}
 }
 
@@ -36,10 +36,10 @@ type Vertix struct {
 }
 
 func (m Vertix) IntX() int {
-	return int(math.Floor(m.X))
+	return int(math.Round(m.X))
 }
 func (m Vertix) IntY() int {
-	return int(math.Floor(m.Y))
+	return int(math.Round(m.Y))
 }
 
 func VerticesToPath(vertices []*Vertix) string {
@@ -60,6 +60,12 @@ func VerticesToPath(vertices []*Vertix) string {
 	buf.WriteString(strconv.Itoa(vertices[0].IntX()))
 	buf.WriteByte(',')
 	buf.WriteString(strconv.Itoa(vertices[0].IntY()))
+	buf.WriteString(" ")
+
+	buf.WriteString("L ")
+	buf.WriteString(strconv.Itoa(vertices[1].IntX()))
+	buf.WriteByte(',')
+	buf.WriteString(strconv.Itoa(vertices[1].IntY()))
 	buf.WriteString(" ")
 	return buf.String()
 }

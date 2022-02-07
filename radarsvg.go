@@ -19,31 +19,33 @@ type Data struct {
 
 func Generate(ctx context.Context, radius int, data []*Data, output io.Writer) {
 	canvas := svg.New(output)
-	canvas.Start(radius+30, radius+30)
+	canvas.Start(radius+30, radius+30, `class="radarsvg"`)
 	canvas.Translate(radius/2+15, radius/2+15)
 	canvas.Style("text/css", `
+.radarsvg {
+	font-family: sans-serif;
+	font-size: 10px;
+}
 .radarsvg-outline {
-	fill: white;
-	stroke: lightgrey;
+	fill: rgb(0, 130, 153);
+	stroke: rgb(0, 104, 122);
 }
 .radarsvg-subline {
 	fill: none;
-	stroke: lightgrey;
+	stroke: rgb(0, 104, 122);
 }
 .radarsvg-datumline {
-	stroke: lightgrey;
+	stroke: rgb(0, 104, 122);
 }
 .radarsvg-dataline {
-	fill: rgba(255, 0, 0, 0.5);
+	fill: rgba(179, 57, 81, 0.75);
 }
 .radarsvg-hovercircle {
 	fill: none;
 	stroke: none;
 }
 .radarsvg-point {
-	fill: rgb(50, 125, 75);
-	text-anchor: middle;
-	alignment-baseline: central;
+	fill: rgb(179, 57, 81);
 }
 .radarsvg-label {
 	text-anchor: middle;
@@ -62,9 +64,9 @@ func Generate(ctx context.Context, radius int, data []*Data, output io.Writer) {
 	alignment-baseline: after-edge;
 }`)
 	ngon.NGon(ctx, canvas, radius, len(data), `class="radarsvg-outline"`)
-	radiusStep := radius / 4
+	radiusStep := float64(radius) / 4
 	for i := 1; i <= 4; i++ {
-		ngon.NGon(ctx, canvas, radius-(radiusStep*i), len(data), `class="radarsvg-subline"`)
+		ngon.NGon(ctx, canvas, int(math.Round(float64(radius)-(radiusStep*float64(i)))), len(data), `class="radarsvg-subline"`)
 	}
 
 	vertices := ngon.CalculateVertices(ctx, radius, len(data))
@@ -78,7 +80,7 @@ func Generate(ctx context.Context, radius int, data []*Data, output io.Writer) {
 	for i, d := range data {
 		normalized := mapNumber(float64(d.Value), float64(d.Min), float64(d.Max), 0, 1)
 		length := normalized * float64(radius)
-		datumPoints = append(datumPoints, ngon.CalculateVertix(ctx, int(math.Floor(length)), len(data), i))
+		datumPoints = append(datumPoints, ngon.CalculateVertix(ctx, int(math.Round(length)), len(data), i))
 	}
 
 	canvas.Path(ngon.VerticesToPath(datumPoints), `class="radarsvg-dataline"`)
