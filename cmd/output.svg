@@ -9,6 +9,7 @@
 
 .radarsvg-outline {
 	fill: white;
+	stroke: lightgrey;
 }
 .radarsvg-subline {
 	fill: none;
@@ -26,6 +27,8 @@
 }
 .radarsvg-point {
 	fill: rgb(50, 125, 75);
+	text-anchor: middle;
+	alignment-baseline: central;
 }
 .radarsvg-label {
 	text-anchor: middle;
@@ -43,38 +46,37 @@
 .radarsvg-labelbottom {
 	alignment-baseline: after-edge;
 }
-	
-	
 ]]>
 </style>
-<path d="M 0.0000,100.0000 L 86.6025,50.0000 L 86.6025,-50.0000 L 0.0000,-100.0000 L -86.6025,-50.0000 L -86.6025,50.0000 L 0.0000,100.0000 " class="radarsvg-outline" />
-<path d="M 0.0000,67.0000 L 58.0237,33.5000 L 58.0237,-33.5000 L 0.0000,-67.0000 L -58.0237,-33.5000 L -58.0237,33.5000 L 0.0000,67.0000 " class="radarsvg-subline" />
-<path d="M 0.0000,34.0000 L 29.4449,17.0000 L 29.4449,-17.0000 L 0.0000,-34.0000 L -29.4449,-17.0000 L -29.4449,17.0000 L 0.0000,34.0000 " class="radarsvg-subline" />
-<path d="M 0.0000,1.0000 L 0.8660,0.5000 L 0.8660,-0.5000 L 0.0000,-1.0000 L -0.8660,-0.5000 L -0.8660,0.5000 L 0.0000,1.0000 " class="radarsvg-subline" />
+<path d="M 0,100 L 86,50 L 86,-50 L 0,-100 L -87,-51 L -87,49 L 0,100 " class="radarsvg-outline" />
+<path d="M 0,75 L 64,37 L 64,-38 L 0,-75 L -65,-38 L -65,37 L 0,75 " class="radarsvg-subline" />
+<path d="M 0,50 L 43,25 L 43,-25 L 0,-50 L -44,-26 L -44,24 L 0,50 " class="radarsvg-subline" />
+<path d="M 0,25 L 21,12 L 21,-13 L 0,-25 L -22,-13 L -22,12 L 0,25 " class="radarsvg-subline" />
+<path d="M 0,0 L 0,0 L 0,0 L 0,0 L 0,0 L 0,0 L 0,0 " class="radarsvg-subline" />
 <line x1="0" y1="0" x2="0" y2="100" class="radarsvg-datumline" />
 <line x1="0" y1="0" x2="86" y2="50" class="radarsvg-datumline" />
-<line x1="0" y1="0" x2="86" y2="-49" class="radarsvg-datumline" />
+<line x1="0" y1="0" x2="86" y2="-50" class="radarsvg-datumline" />
 <line x1="0" y1="0" x2="0" y2="-100" class="radarsvg-datumline" />
-<line x1="0" y1="0" x2="-86" y2="-50" class="radarsvg-datumline" />
-<line x1="0" y1="0" x2="-86" y2="49" class="radarsvg-datumline" />
-<path d="M 0.0000,50.0000 L 25.9808,15.0000 L 43.3013,-25.0000 L 0.0000,-50.0000 L -43.3013,-25.0000 L -86.6025,50.0000 L 0.0000,50.0000 " class="radarsvg-dataline" />
+<line x1="0" y1="0" x2="-87" y2="-51" class="radarsvg-datumline" />
+<line x1="0" y1="0" x2="-87" y2="49" class="radarsvg-datumline" />
+<path d="M 0,50 L 25,15 L 43,-25 L 0,-50 L -44,-26 L -87,49 L 0,50 " class="radarsvg-dataline" />
 <text x="0" y="100" class="radarsvg-label radarsvg-labelbottom " >Test</text>
 <text x="86" y="50" class="radarsvg-label radarsvg-labelright radarsvg-labelbottom " >Test1</text>
-<text x="86" y="-49" class="radarsvg-label radarsvg-labelright radarsvg-labeltop " >Test2</text>
+<text x="86" y="-50" class="radarsvg-label radarsvg-labelright radarsvg-labeltop " >Test2</text>
 <text x="0" y="-100" class="radarsvg-label radarsvg-labeltop " >Test3</text>
-<text x="-86" y="-50" class="radarsvg-label radarsvg-labelleft radarsvg-labeltop " >Test4</text>
-<text x="-86" y="49" class="radarsvg-label radarsvg-labelleft radarsvg-labelbottom " >Test4</text>
+<text x="-87" y="-51" class="radarsvg-label radarsvg-labelleft radarsvg-labeltop " >Test4</text>
+<text x="-87" y="49" class="radarsvg-label radarsvg-labelleft radarsvg-labelbottom " >Test4</text>
 <circle cx="0" cy="50" r="1" class="radarsvg-point" />
 <circle cx="0" cy="50" r="3" class="radarsvg-hovercircle" data-radarsvg-i="0" />
 <circle cx="25" cy="15" r="1" class="radarsvg-point" />
 <circle cx="25" cy="15" r="3" class="radarsvg-hovercircle" data-radarsvg-i="1" />
-<circle cx="43" cy="-24" r="1" class="radarsvg-point" />
-<circle cx="43" cy="-24" r="3" class="radarsvg-hovercircle" data-radarsvg-i="2" />
+<circle cx="43" cy="-25" r="1" class="radarsvg-point" />
+<circle cx="43" cy="-25" r="3" class="radarsvg-hovercircle" data-radarsvg-i="2" />
 <circle cx="0" cy="-50" r="1" class="radarsvg-point" />
 <circle cx="0" cy="-50" r="3" class="radarsvg-hovercircle" data-radarsvg-i="3" />
-<circle cx="-43" cy="-25" r="1" class="radarsvg-point" />
-<circle cx="-43" cy="-25" r="3" class="radarsvg-hovercircle" data-radarsvg-i="4" />
-<circle cx="-86" cy="49" r="1" class="radarsvg-point" />
-<circle cx="-86" cy="49" r="3" class="radarsvg-hovercircle" data-radarsvg-i="5" />
+<circle cx="-44" cy="-26" r="1" class="radarsvg-point" />
+<circle cx="-44" cy="-26" r="3" class="radarsvg-hovercircle" data-radarsvg-i="4" />
+<circle cx="-87" cy="49" r="1" class="radarsvg-point" />
+<circle cx="-87" cy="49" r="3" class="radarsvg-hovercircle" data-radarsvg-i="5" />
 </g>
 </svg>
